@@ -35,3 +35,7 @@ WHERE
 
 - Work on final project preparations + library/carto exploration for the remainder of class
 
+- Extras:
+  - [Fast spatial joins on the frontend with rtrees](https://beta.observablehq.com/@jfrankl/spatial-search-with-flatbush-and-leaflet-draw) (demo by Jeff Frankl)
+  - [Working with topojson](https://beta.observablehq.com/@jfrankl/topojson) (demo by Jeff Frankl)
+  - [Project work by the creator of Leaflet](https://github.com/mourner/projects) Quoting Jeff: "*rbush* can handle points and rectangles and can be updated, *flatbush* is faster than rbush but is static (can’t be updated with new geoms), *kdbush* is the fastest but is only for points"
