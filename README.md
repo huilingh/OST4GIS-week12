@@ -16,6 +16,8 @@ Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofdd
   - Ask for only the columns you need
   - [Geometry simplification](http://www.postgis.org/docs/ST_Simplify.html)
   - [Indices](http://revenant.ca/www/postgis/workshop/indexing.html)
+  - [Save work in new tables](https://www.postgresql.org/docs/8.2/static/sql-createtableas.html)
+  - [Force CARTO to recognize new tables](https://carto.com/docs/carto-engine/sql-api/creating-tables/)
   - Use the `cartodb_id` in queries (this column is indexed by default). Example:
 ```SQL
 SELECT
