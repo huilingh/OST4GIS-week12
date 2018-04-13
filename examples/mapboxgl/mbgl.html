@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Add a third party vector tile source</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'http://osm-liberty.lukasmartinelli.ch/style.json',
+    zoom: 12,
+    center: [-75, 40]
+});
+
+var url = 'https://raw.githubusercontent.com/CPLN-692-401/datasets/master/geojson/philadelphia-crime-points.geojson'
+
+map.on('load', function() {
+    map.addSource('test', { type: 'geojson', data: url });
+    map.getSource('test').setData(url)
+    map.addLayer({
+        "id": "test",
+        "type": "circle",
+        "source": "test",
+        "layout": {
+        }
+    });
+});
+
+map.addControl(new mapboxgl.NavigationControl());
+</script>
+
+</body>
+</html>
