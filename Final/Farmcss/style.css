@@ -1,0 +1,19 @@
+body {
+    padding: 0;
+    overflow: hidden;
+    font-family: Avenir, Calibri, Helvetica;
+}
+
+nav {
+  position: absolute;
+  top: 0px;
+  height: 70px;
+}
+
+.map {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    height: 100%;
+    top: 70px;
+}
