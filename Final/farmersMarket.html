@@ -45,6 +45,25 @@
       </div>
     </nav>
 
+
+    <div class="box">
+      <h5>Farmers Markets in Philadelphia</h5><br>
+      <div id="intro">
+        <p>Some intro text goes here</p>
+        <p>Click on the farmers markets to find out more details</p>
+      </div>
+      <div id="results" style="display: none;">
+        <p>Name: <span class="name"></span></p>
+        <p>Address: <span class="address"></span></p>
+        <p>Day: <span class="day"></span></p>
+        <p>Time: <span class="time"></span></p>
+        <p>Month: <span class="month"></span></p>
+        <p>Neighborhood: <span class="neighbor"></span></p>
+        <p>Major Bus & Subway Routes: <span class="transit"></span></p>
+        <button type="button" class="btn btn-secondary" id="back">Back</button>
+      </div>
+    </div>
+
     <div id="map" class="map"></div>
 
 
@@ -55,7 +74,6 @@
     <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
     <script src="Farmjs/main.js"></script>
     <script src="Farmjs/decode.js"></script>
-    <!-- <script src="Farmjs/jquery-2.2.0.js"></script>
-    <script src="Farmjs/leaflet.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>

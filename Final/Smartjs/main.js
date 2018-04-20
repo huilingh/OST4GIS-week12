@@ -81,44 +81,15 @@ var updatePosition = function(lat, lng, updated) {
 };
 
 
-var eachFeatureFunction = function(layer) {
-  layer.on('click', function (event) {
-    console.log(layer.feature.properties);
-    $('span.name').text(layer.feature.properties.NAME);
-    $('span.address').text(layer.feature.properties.ADDRESS);
-    $('span.day').text(layer.feature.properties.DAY);
-    $('span.time').text(layer.feature.properties.TIME);
-    $('span.month').text(layer.feature.properties.MONTHS);
-    $('span.neighbor').text(layer.feature.properties.NEIGHBORHOOD);
-    $('span.transit').text(layer.feature.properties.MAJOR_BUS_SUBWAY_ROUTES);
-    $('#intro').hide();
-    $('#results').show();
-  });
-};
-
-var markers = {
-    radius: 8,
-    fillColor: "#6e9f47",
-    color: "#ffffff",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.8
-};
-
-
-// get and parse the farmers market Locations
+// get and parse the health smart corner store Locations
 var market = 'https://raw.githubusercontent.com/huilingh/OST4GIS-week12/master/Final/geojson/Farmers_Markets.geojson'
 
 $.ajax(market).then(function(market){
   parsedMarket = JSON.parse(market);
   allMarkets = L.geoJson(parsedMarket, {
-    pointToLayer: function (feature, latlng) {return L.circleMarker(latlng, markers);},
-  }).addTo(map).eachLayer(eachFeatureFunction);
-
-  $('#back').click(function(){
-    $('#intro').show();
-    $('#results').hide();
-  })
+    // style: myStyle,
+    // filter: myFilter
+  }).addTo(map);
 
   /* This 'if' check allows us to safely ask for the user's current position */
   if ("geolocation" in navigator) {
@@ -175,3 +146,22 @@ $.ajax(market).then(function(market){
   }
 
 })
+
+
+  // $("#calculate").click(function(e) {
+  //   var dest = // nearest farmers market
+  //   console.log(dest);
+  //
+  //     var Route = 'https://api.mapbox.com/directions/v5/mapbox/walking/' +
+  //     orilng + ',' + orilat + ';' + destlng + ',' + destlat +
+  //     '?access_token=pk.eyJ1IjoiaHVpbGluZ2giLCJhIjoiY2pmOW9vcDFvMjlrNzJ4cDQ2NXBwbGxuaiJ9.dCVDcHLb63hLrTilZTl1vQ'
+  //     $.ajax(Route).then(function(route){
+  //       console.log(route);
+  //       var string = route.routes[0].geometry;
+  //       console.log(string);
+  //       var decodelatlngs = decode(string);
+  //       var latlngs = _.map(decodelatlngs, function(data) {return [data[0]*10, data[1]*10]});
+  //       console.log(latlngs);
+  //       var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+  //     })
+  // });
